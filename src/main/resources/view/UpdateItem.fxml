@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateItemPageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" layoutX="8.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="606.0" />
+      <Label layoutX="238.0" layoutY="27.0" text="Upload Item Page">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageID" fitHeight="80.0" fitWidth="142.0" layoutX="72.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton layoutX="204.0" layoutY="127.0" onAction="#btnUploadImage" style="-fx-background-color: #74b9ff;" text="Upload Image" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="118.0" layoutX="24.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+      <JFXTextField fx:id="txtItemName" focusColor="#fd79a8" layoutX="24.0" layoutY="231.0" style="-fx-background-color: #fd79a8;" text="Item Name" />
+      <JFXTextField fx:id="txtItemPrice" layoutX="228.0" layoutY="231.0" style="-fx-background-color: #fd79a8;" text="Item Price" />
+      <JFXTextField fx:id="txtItemSize" layoutX="415.0" layoutY="231.0" style="-fx-background-color: #fd79a8;" text="Item Size" />
+      <JFXTextField fx:id="txtItemQuantity" layoutX="24.0" layoutY="299.0" style="-fx-background-color: #fd79a8;" text="Item Quantity" />
+      <JFXTextField fx:id="txtItemSuppierName" layoutX="228.0" layoutY="299.0" style="-fx-background-color: #fd79a8;" text="Item Supplier Name" />
+      <JFXButton layoutX="27.0" layoutY="359.0" onAction="#btnAddItem" style="-fx-background-color: #74b9ff;" text="Add Item" />
+   </children>
+</AnchorPane>

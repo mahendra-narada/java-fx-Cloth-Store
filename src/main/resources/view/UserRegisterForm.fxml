@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserRegisterFormPageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="71.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" width="607.0" />
+      <Label layoutX="226.0" layoutY="18.0" prefHeight="36.0" prefWidth="238.0" text="User Registration">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUsername" layoutX="34.0" layoutY="104.0" text="User Name" />
+      <JFXTextField fx:id="txtuserEmail" layoutX="191.0" layoutY="104.0" text="User Email" />
+      <JFXTextField fx:id="txtpassword" layoutX="352.0" layoutY="104.0" text="Password" />
+      <ImageView fx:id="userImage" fitHeight="124.0" fitWidth="177.0" layoutX="26.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton layoutX="259.0" layoutY="205.0" onAction="#btnAddImage" text="Add Image" />
+      <JFXButton layoutX="259.0" layoutY="331.0" onAction="#btnRegisterUser" text="Register" />
+      <JFXCheckBox fx:id="txtadmincheck" layoutX="56.0" layoutY="331.0" text="Admin" />
+      <JFXCheckBox fx:id="txtNormalUsercheck" layoutX="55.0" layoutY="356.0" text="Normal User" />
+      <Label fx:id="lbluserId" layoutX="420.0" layoutY="171.0" text="USerID" />
+   </children>
+</AnchorPane>

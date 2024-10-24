@@ -1,0 +1,5 @@
+package util;
+
+public enum DaoType {
+    LOGINUSER,RESETPASSWORD,FIRSTREGISTERUSER,ITEM,ORDER
+}

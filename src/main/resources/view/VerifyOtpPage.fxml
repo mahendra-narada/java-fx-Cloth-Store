@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VerifyOtpPageController">
+   <children>
+      <JFXTextField fx:id="txtOTP" layoutX="175.0" layoutY="135.0" prefHeight="37.0" prefWidth="250.0" promptText="OTP" />
+      <JFXButton fx:id="btnVerifyOTP" layoutX="184.0" layoutY="279.0" onAction="#btnVerifyOTPOnAction" prefHeight="37.0" prefWidth="201.0" style="-fx-background-color: #3498db;" text="Verify" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="62.0" stroke="BLACK" strokeType="INSIDE" width="597.0" />
+      <Hyperlink fx:id="linkOTPSendAgain" layoutX="236.0" layoutY="229.0" text="Send OTP Again" />
+      <Label layoutX="223.0" layoutY="22.0" text="Verification Page">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
