@@ -10,18 +10,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.chart.*;
+import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 import model.UserModel;
 import util.ServiceType;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
+
 
 public class ReportManagePageController  implements Initializable {
 
@@ -53,6 +55,8 @@ public class ReportManagePageController  implements Initializable {
 
     @FXML
     void btnGenerate(ActionEvent event) {
+
+
 
     }
     @FXML
@@ -116,4 +120,6 @@ public class ReportManagePageController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadSalesData();
     }
+
+
 }
