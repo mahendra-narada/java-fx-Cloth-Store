@@ -21,6 +21,7 @@ public class UserEntity {
     private byte[] imageData;
     private String email;
     private String password;
+    private Double salary;
     @Enumerated(EnumType.STRING)
     private UserType userType;
 

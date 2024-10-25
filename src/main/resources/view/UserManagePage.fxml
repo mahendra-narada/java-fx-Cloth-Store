@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.UserManagePageController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="469.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserManagePageController">
+   <children>
+      <TableView fx:id="userTable" layoutX="12.0" layoutY="51.0" prefHeight="200.0" prefWidth="606.0">
+        <columns>
+          <TableColumn fx:id="colUserName" prefWidth="94.0" text="User Name" />
+          <TableColumn fx:id="colEmail" prefWidth="140.0" text="Email" />
+            <TableColumn fx:id="colPassword" prefWidth="119.0" text="Password" />
+            <TableColumn fx:id="colUserType" prefWidth="139.0" text="User Type" />
+            <TableColumn fx:id="colsalary" prefWidth="113.0" text="Salary" />
+        </columns>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="14.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+      <JFXButton layoutX="157.0" layoutY="355.0" onAction="#btnUpload" style="-fx-background-color: #74b9ff;" text="Upload" />
+      <ImageView fx:id="userImage" fitHeight="98.0" fitWidth="136.0" layoutX="14.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="txtUsername" layoutX="185.0" layoutY="291.0" />
+      <JFXTextField fx:id="txtUserEmail" layoutX="334.0" layoutY="291.0" />
+      <JFXTextField fx:id="txtPassowrd" layoutX="476.0" layoutY="291.0" />
+      <JFXCheckBox fx:id="checkAdmin" layoutX="239.0" layoutY="359.0" text="Admin" />
+      <JFXCheckBox fx:id="checkDefault" layoutX="239.0" layoutY="389.0" text="Default" />
+      <Label layoutX="185.0" layoutY="266.0" text="User Name" />
+      <Label layoutX="334.0" layoutY="270.0" text="Email" />
+      <Label layoutX="476.0" layoutY="270.0" text="Password" />
+      <JFXButton layoutX="158.0" layoutY="418.0" onAction="#btnUpdate" style="-fx-background-color: #74b9ff;" text="Update" />
+      <JFXButton layoutX="225.0" layoutY="418.0" onAction="#btnAdd" style="-fx-background-color: #74b9ff;" text="Add" />
+      <JFXButton layoutX="284.0" layoutY="418.0" onAction="#btnRemove" style="-fx-background-color: #74b9ff;" text="remove" />
+      <JFXButton layoutX="363.0" layoutY="418.0" onAction="#btnHome" style="-fx-background-color: #74b9ff;" text="Home" />
+      <Label fx:id="userid" layoutX="21.0" layoutY="435.0" textFill="#ebe0e0" />
+      <JFXTextField fx:id="txtSalary" layoutX="476.0" layoutY="365.0" />
+      <Label layoutX="482.0" layoutY="347.0" text="Salary" />
+      <Label fx:id="nextuserid" layoutX="563.0" layoutY="435.0" prefHeight="17.0" prefWidth="38.0" textFill="#ebe0e0" />
+   </children>
 </AnchorPane>

@@ -1,11 +1,15 @@
 package Repository.Custom.Impl;
 
 import Entity.UserEntity;
+import Entity.UserType;
 import Repository.Custom.UserDao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.HibernateUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDaoImpl implements UserDao {
     @Override
@@ -87,5 +91,75 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
     }
+
+    public List<UserEntity> getAllUsers() {
+        List<UserEntity> users = new ArrayList<>();
+
+        try (Session session = HibernateUtil.getSession()) {
+            // Use HQL to get all users
+            Query<UserEntity> query = session.createQuery("FROM UserEntity", UserEntity.class);
+            users = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
+    public void deleteUser(int userId) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            UserEntity user = session.get(UserEntity.class, userId);
+            if (user != null) {
+                session.delete(user); // Remove the user from the database
+                transaction.commit();  // Commit the transaction
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, Double newSalary, UserType newUserType, byte[] newImageData) {
+        Transaction transaction = null;
+
+        try (Session session = HibernateUtil.getSession()) {
+            // Begin a transaction
+            transaction = session.beginTransaction();
+
+            // Retrieve the user by ID
+            UserEntity userEntity = session.get(UserEntity.class, userId);
+
+            // Check if user exists
+            if (userEntity != null) {
+                // Update user details
+                userEntity.setUserName(newUserName);
+                userEntity.setEmail(newEmail);
+                userEntity.setPassword(newPassword);
+                userEntity.setSalary(newSalary);
+                userEntity.setUserType(newUserType);
+
+                // Update image data
+                if (newImageData != null) {
+                    userEntity.setImageData(newImageData);
+                }
+
+                // Persist the changes
+                session.update(userEntity);
+            } else {
+                System.out.println("User with ID " + userId + " not found.");
+            }
+
+            // Commit the transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();  // Rollback in case of error
+            }
+            e.printStackTrace();
+        }
+    }
+
 
 }

@@ -24,4 +24,5 @@ public interface OrderService extends SuperService {
     public Double getTotalOrderSum();
     public String getTopCashierToday();
     public String getTopItemToday();
+
 }

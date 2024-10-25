@@ -162,8 +162,14 @@ public class AdminDashBoardPageController implements Initializable {
     }
 
     @FXML
-    void btnUsersOnAction(ActionEvent event) {
-
+    void btnUsersOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/UserManagePage.fxml"));
+        Parent root = loader.load();
+        UserManagePageController userManagePageController = loader.getController();
+        userManagePageController.settingUserEmail(userEmail);
+        Stage currentStage = (Stage) lblSlogan.getScene().getWindow();
+        currentStage.setScene(new Scene(root));
+        currentStage.show();
     }
 
     @Override

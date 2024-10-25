@@ -19,6 +19,7 @@ public class UserModel {
     private byte[] imageData;
     private String email;
     private String password;
+    private Double salary;
     private UserType userType;
 
 }

@@ -79,7 +79,7 @@ public class ViewUserProfilePageController implements Initializable {
         byte[] newimageBytes = imageBytes;
         UserServiceImpl userService = ServiceFactory.getInstance().getServiceType(ServiceType.FIRSTREGISTERUSER);
          UserModel userModel=userService.getUser(userEmail);
-         UserModel userModel1 = new UserModel(userModel.getUserId(),newUsername,newimageBytes,newemail,newpassword,userModel.getUserType());
+         UserModel userModel1 = new UserModel(userModel.getUserId(),newUsername,newimageBytes,newemail,newpassword,userModel.getSalary(),userModel.getUserType());
          userService.updateUser(userModel1);
 
     }

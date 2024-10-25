@@ -1,12 +1,15 @@
 package Service.Custom.Impl;
 
 import Entity.UserEntity;
+import Entity.UserType;
 import Repository.Custom.UserDao;
 import Repository.DaoFactory;
 import Service.Custom.UserService;
 import model.UserModel;
 import org.modelmapper.ModelMapper;
 import util.DaoType;
+
+import java.util.List;
 
 public class UserServiceImpl implements UserService {
     @Override
@@ -40,5 +43,23 @@ public class UserServiceImpl implements UserService {
         UserEntity userEntity = new ModelMapper().map(userModel,UserEntity.class);
         userDao.updateUser(userEntity);
 
+    }
+
+    @Override
+    public List<UserEntity> getAllUsers() {
+        UserDao userDao = DaoFactory.getInstance().getServiceType(DaoType.FIRSTREGISTERUSER);
+        return userDao.getAllUsers();
+    }
+
+    @Override
+    public void deleteUser(int userId) {
+        UserDao userDao = DaoFactory.getInstance().getServiceType(DaoType.FIRSTREGISTERUSER);
+        userDao.deleteUser(userId);
+    }
+
+    @Override
+    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, Double newSalary, UserType newUserType, byte[] newImageData) {
+        UserDao userDao = DaoFactory.getInstance().getServiceType(DaoType.FIRSTREGISTERUSER);
+        userDao.updateUser(userId,newUserName,newEmail,newPassword,newSalary,newUserType,newImageData);
     }
 }
