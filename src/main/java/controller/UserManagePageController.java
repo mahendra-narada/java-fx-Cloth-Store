@@ -92,7 +92,6 @@ public class UserManagePageController  implements Initializable {
     public void settingUserEmail(String email) {
         this.userEmail = email;
 
-
     }
     @FXML
     void btnAdd(ActionEvent event) {
@@ -221,23 +220,16 @@ public class UserManagePageController  implements Initializable {
         String username = txtUsername.getText().trim();
         String email = txtUserEmail.getText().trim();
         String password = txtPassowrd.getText().trim();
-        String salaryText = txtSalary.getText().trim();
+
         double salary;
         int id;
 
         // Validate if all fields are filled
-        if (username.isEmpty() || email.isEmpty() || password.isEmpty() || salaryText.isEmpty() || userid.getText().isEmpty()) {
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty()  || userid.getText().isEmpty()) {
             showAlert("Error", "All fields must be filled.", Alert.AlertType.ERROR);
             return;
         }
 
-        // Validate if salary is a valid double
-        try {
-            salary = Double.parseDouble(salaryText);
-        } catch (NumberFormatException e) {
-            showAlert("Error", "Please enter a valid number for salary.", Alert.AlertType.ERROR);
-            return;
-        }
 
         // Validate if id is a valid integer
         try {
@@ -266,7 +258,7 @@ public class UserManagePageController  implements Initializable {
 
         // Update user details
         UserServiceImpl userService = ServiceFactory.getInstance().getServiceType(ServiceType.FIRSTREGISTERUSER);
-        userService.updateUser(id, username, email, password, salary, userType, UserimageBytes);
+        userService.updateUser(id, username, email, password,userType, UserimageBytes);
 
         // Show success message
         showAlert("Success", "User details updated successfully!", Alert.AlertType.INFORMATION);

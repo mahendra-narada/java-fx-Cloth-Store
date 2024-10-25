@@ -14,5 +14,5 @@ public interface UserService extends SuperService {
     public void updateUser(UserModel userModel);
     public List<UserEntity> getAllUsers();
     public void deleteUser(int userId);
-    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, Double newSalary, UserType newUserType, byte[] newImageData);
+    public void updateUser(int userId, String newUserName, String newEmail, String newPassword,UserType newUserType, byte[] newImageData);
 }

@@ -16,6 +16,6 @@ public interface UserDao extends CrudDao<UserEntity> {
 
     public void deleteUser(int userId);
 
-    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, Double newSalary, UserType newUserType, byte[] newImageData);
+    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, UserType newUserType, byte[] newImageData);
 
 }

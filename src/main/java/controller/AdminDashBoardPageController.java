@@ -136,14 +136,21 @@ public class AdminDashBoardPageController implements Initializable {
     }
 
     @FXML
-    void btnReportOnAction(ActionEvent event) {
-
+    void btnReportOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/ReportManagePage.fxml"));
+        Parent root = loader.load();
+        ReportManagePageController reportManagePageController = loader.getController();
+        reportManagePageController.settingUserEmail(userEmail);
+        Stage currentStage = (Stage) lblSlogan.getScene().getWindow();
+        currentStage.setScene(new Scene(root));
+        currentStage.show();
     }
 
     @FXML
     void btnSuppliersOnAction(ActionEvent event) {
 
     }
+
 
     @FXML
     void btnToDoList(ActionEvent event) {

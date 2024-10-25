@@ -49,7 +49,6 @@
       <Label fx:id="lblTime" layoutX="521.0" layoutY="17.0" text="Time" />
       <JFXButton layoutX="205.0" layoutY="171.0" onAction="#btnToDoList" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #81ecec;" text="To Do List" />
       <JFXButton layoutX="393.0" layoutY="171.0" onAction="#btnCall" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #81ecec;" text="Call" />
-      <JFXButton layoutX="576.0" layoutY="171.0" onAction="#btnCheckSalary" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #81ecec;" text="Check my Salary" />
       <Label fx:id="lblTotal" layoutX="240.0" layoutY="111.0" prefHeight="17.0" prefWidth="39.0" />
       <Label fx:id="lblTotalOrders" layoutX="379.0" layoutY="103.0" prefHeight="17.0" prefWidth="39.0" />
       <Label fx:id="lblTotalItems" layoutX="515.0" layoutY="103.0" prefHeight="17.0" prefWidth="32.0" />

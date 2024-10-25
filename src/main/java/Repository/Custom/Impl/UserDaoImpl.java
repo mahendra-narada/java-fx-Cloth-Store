@@ -121,7 +121,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, Double newSalary, UserType newUserType, byte[] newImageData) {
+    public void updateUser(int userId, String newUserName, String newEmail, String newPassword,UserType newUserType, byte[] newImageData) {
         Transaction transaction = null;
 
         try (Session session = HibernateUtil.getSession()) {
@@ -137,7 +137,7 @@ public class UserDaoImpl implements UserDao {
                 userEntity.setUserName(newUserName);
                 userEntity.setEmail(newEmail);
                 userEntity.setPassword(newPassword);
-                userEntity.setSalary(newSalary);
+                //userEntity.setSalary(newSalary);
                 userEntity.setUserType(newUserType);
 
                 // Update image data

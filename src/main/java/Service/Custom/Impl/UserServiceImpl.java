@@ -58,8 +58,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, Double newSalary, UserType newUserType, byte[] newImageData) {
+    public void updateUser(int userId, String newUserName, String newEmail, String newPassword, UserType newUserType, byte[] newImageData) {
         UserDao userDao = DaoFactory.getInstance().getServiceType(DaoType.FIRSTREGISTERUSER);
-        userDao.updateUser(userId,newUserName,newEmail,newPassword,newSalary,newUserType,newImageData);
+        userDao.updateUser(userId,newUserName,newEmail,newPassword,newUserType,newImageData);
     }
 }

@@ -15,11 +15,10 @@
    <children>
       <TableView fx:id="userTable" layoutX="12.0" layoutY="51.0" prefHeight="200.0" prefWidth="606.0">
         <columns>
-          <TableColumn fx:id="colUserName" prefWidth="94.0" text="User Name" />
-          <TableColumn fx:id="colEmail" prefWidth="140.0" text="Email" />
-            <TableColumn fx:id="colPassword" prefWidth="119.0" text="Password" />
-            <TableColumn fx:id="colUserType" prefWidth="139.0" text="User Type" />
-            <TableColumn fx:id="colsalary" prefWidth="113.0" text="Salary" />
+          <TableColumn fx:id="colUserName" prefWidth="118.0" text="User Name" />
+          <TableColumn fx:id="colEmail" prefWidth="232.0" text="Email" />
+            <TableColumn fx:id="colPassword" prefWidth="122.0" text="Password" />
+            <TableColumn fx:id="colUserType" prefWidth="132.0" text="User Type" />
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="14.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
@@ -38,8 +37,6 @@
       <JFXButton layoutX="284.0" layoutY="418.0" onAction="#btnRemove" style="-fx-background-color: #74b9ff;" text="remove" />
       <JFXButton layoutX="363.0" layoutY="418.0" onAction="#btnHome" style="-fx-background-color: #74b9ff;" text="Home" />
       <Label fx:id="userid" layoutX="21.0" layoutY="435.0" textFill="#ebe0e0" />
-      <JFXTextField fx:id="txtSalary" layoutX="476.0" layoutY="365.0" />
-      <Label layoutX="482.0" layoutY="347.0" text="Salary" />
       <Label fx:id="nextuserid" layoutX="563.0" layoutY="435.0" prefHeight="17.0" prefWidth="38.0" textFill="#ebe0e0" />
    </children>
 </AnchorPane>
