@@ -33,4 +33,12 @@ public class UserServiceImpl implements UserService {
         UserModel userModel = new ModelMapper().map(userEntity,UserModel.class);
         return userModel;
     }
+
+    @Override
+    public void updateUser(UserModel userModel) {
+        UserDao userDao = DaoFactory.getInstance().getServiceType(DaoType.FIRSTREGISTERUSER);
+        UserEntity userEntity = new ModelMapper().map(userModel,UserEntity.class);
+        userDao.updateUser(userEntity);
+
+    }
 }

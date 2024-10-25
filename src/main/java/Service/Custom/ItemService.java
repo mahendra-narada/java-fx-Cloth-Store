@@ -13,4 +13,7 @@ public interface ItemService extends SuperService {
     boolean deleteItem(String itemcode);
     boolean updateItem(Item item);
     public List<ItemEntity> searchItems(String searchText);
+    public int getItemStock(String itemName);
+    public long getTotalItemsCount();
+
 }

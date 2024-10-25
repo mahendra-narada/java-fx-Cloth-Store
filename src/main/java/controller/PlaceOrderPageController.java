@@ -1,10 +1,12 @@
 package controller;
 
 import Entity.ItemEntity;
+import Entity.UserType;
 import Service.Custom.Impl.ItemServiceImpl;
 import Service.Custom.Impl.OrderServiceImpl;
 import Service.Custom.Impl.UserServiceImpl;
 import Service.Custom.OrderService;
+import Service.Custom.UserService;
 import Service.ServiceFactory;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -12,17 +14,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import model.CartItem;
 import model.Item;
 import model.UserModel;
 import util.ServiceType;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,9 +65,6 @@ public class PlaceOrderPageController implements Initializable {
     private JFXTextArea txtItemCart;
 
     @FXML
-    private TextArea txtItemName;
-
-    @FXML
     private TextArea txtQuantity;
 
     @FXML
@@ -79,9 +83,14 @@ public class PlaceOrderPageController implements Initializable {
     private TableColumn<?, ?> colcartName;
 
     @FXML
+    private TableColumn<?, ?> colItemTotal;
+
+    @FXML
     private Label txtTotal;
     @FXML
     private Label lblitemprice;
+    @FXML
+    private Label txtItemName;
 
     @FXML
     private JFXTextField txtUserPyment;
@@ -122,14 +131,15 @@ public class PlaceOrderPageController implements Initializable {
             return;
         }
 
+        double itemtotalprice = (Double.parseDouble((lblitemprice.getText())) * enteredQuantity);
         // Add item name to the cart if the quantity is valid
-        updateCartDisplay(txtItemName.getText(), enteredQuantity,lblitemprice.getText());
+        updateCartDisplay(txtItemName.getText(), enteredQuantity,lblitemprice.getText(),itemtotalprice);
     }
 
-    private void updateCartDisplay(String itemName, int quantity, String price) {
+    private void updateCartDisplay(String itemName, int quantity, String price,double itemtotalprice) {
 
         double itemprice = Double.parseDouble((price));
-        CartItem cartItem = new CartItem(itemName,itemprice,quantity);
+        CartItem cartItem = new CartItem(itemName,itemprice,quantity,itemtotalprice);
 
 
         // Clear existing items in case of reloading
@@ -168,7 +178,7 @@ public class PlaceOrderPageController implements Initializable {
 
     @FXML
     void btnClearCart(ActionEvent event) {
-
+        itemCartObservableList.clear();
     }
 
     @FXML
@@ -263,6 +273,7 @@ public class PlaceOrderPageController implements Initializable {
         colcartName.setCellValueFactory(new PropertyValueFactory<>("itemName"));
         colCartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         colCartQuantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+        colItemTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
 
     }
@@ -320,6 +331,49 @@ public class PlaceOrderPageController implements Initializable {
         // Simple regex for basic email validation
         String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         return email.matches(emailRegex);
+    }
+
+    @FXML
+    void btnRemoveItem(ActionEvent event) {
+
+        CartItem selectedItem = cartTable.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            double total = Double.parseDouble(txtTotal.getText());
+            double NewTotal = total-selectedItem.getTotal();
+            txtTotal.setText(String.valueOf(NewTotal));
+            // Remove the selected item from the observable list
+            itemCartObservableList.remove(selectedItem);
+
+            // Refresh the cart table
+            cartTable.refresh();
+        } else {
+            showAlert("Error", "Please select an item to remove.", Alert.AlertType.WARNING);
+        }
+    }
+
+    @FXML
+    void btnHome(ActionEvent event) throws IOException {
+        UserService userService = ServiceFactory.getInstance().getServiceType(ServiceType.FIRSTREGISTERUSER);
+        UserModel userModel = userService.getUser(userEmail);
+        if (userModel.getUserType() == UserType.ADMIN_USER) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/AdminDashBoard.fxml"));
+            Parent root = loader.load();
+            AdminDashBoardPageController adminDashBoardPageController = loader.getController();
+            adminDashBoardPageController.settingUserEmail(userEmail);
+            Stage currentStage = (Stage) txtTotal.getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+            currentStage.show();
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/NormalUserDashBoardPage.fxml"));
+            Parent root = loader.load();
+            NormalUserDashBoardPageController normalUserDashBoardPageController = loader.getController();
+            normalUserDashBoardPageController.settingUserEmail(userEmail);
+            Stage currentStage = (Stage) txtTotal.getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+            currentStage.show();
+
+        }
     }
 
 

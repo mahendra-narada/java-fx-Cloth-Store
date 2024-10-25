@@ -19,38 +19,41 @@
          </image>
       </ImageView>
       <JFXButton layoutX="9.0" layoutY="214.0" onAction="#btnPlaceOrderOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Place Order" />
-      <JFXButton layoutX="8.0" layoutY="245.0" onAction="#btnInventoryMangeOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Inventory Manage" />
-      <JFXButton layoutX="10.0" layoutY="281.0" onAction="#btnSuppliersOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Suppliers" />
-      <JFXButton layoutX="8.0" layoutY="314.0" onAction="#btnOrdersOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Orders" />
-      <JFXButton layoutX="10.0" layoutY="418.0" onAction="#btnLogOutOnAction" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #fd79a8;" text="Logout" />
+      <JFXButton layoutX="8.0" layoutY="251.0" onAction="#btnInventoryMangeOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Inventory Manage" />
+      <JFXButton layoutX="8.0" layoutY="295.0" onAction="#btnOrdersOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Orders" />
+      <JFXButton layoutX="6.0" layoutY="418.0" onAction="#btnLogOutOnAction" prefHeight="40.0" prefWidth="187.0" style="-fx-background-color: #fd79a8;" text="Logout" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="48.0" layoutX="203.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="545.0" />
       <Label fx:id="lblSlogan" layoutX="379.0" layoutY="27.0" text="SLOGAN" />
       <Label fx:id="lblDate" layoutX="690.0" layoutY="27.0" text="Date" />
-      <Rectangle fx:id="lblTotal" arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="33.0" layoutX="215.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
-      <Label layoutX="230.0" layoutY="85.0" text="Today Total" />
-      <Rectangle fx:id="lblTotalOrders" arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="33.0" layoutX="321.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
-      <Label fx:id="lblOrders" layoutX="332.0" layoutY="88.0" text="Today Orders" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="64.0" layoutX="215.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
+      <Label fx:id="lblTotal" layoutX="225.0" layoutY="118.0" prefHeight="17.0" prefWidth="72.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="64.0" layoutX="321.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
+      <Label fx:id="lblOrders" layoutX="332.0" layoutY="112.0" prefHeight="17.0" prefWidth="72.0" />
       <BarChart fx:id="Graph" layoutX="215.0" layoutY="254.0" prefHeight="205.0" prefWidth="450.0">
          <xAxis>
-            <CategoryAxis side="BOTTOM" />
+            <CategoryAxis side="BOTTOM" fx:id="xAxis" />
          </xAxis>
          <yAxis>
-            <NumberAxis side="LEFT" />
+            <NumberAxis fx:id="yAxis" side="LEFT" />
          </yAxis>
       </BarChart>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="204.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="545.0" />
       <Label layoutX="401.0" layoutY="226.0" text="Order Analysis" />
-      <JFXButton layoutX="19.0" layoutY="181.0" onAction="#btnUSerUpdate" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #81ecec;" text="User Name" />
-      <Rectangle fx:id="lblActiveHours1" arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="33.0" layoutX="431.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
-      <Label fx:id="lblTotalItems" layoutX="451.0" layoutY="88.0" text="Total Items" />
+      <JFXButton fx:id="lblUsername" layoutX="19.0" layoutY="181.0" onAction="#btnUSerUpdate" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #81ecec;" text="User Name" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="64.0" layoutX="431.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
+      <Label fx:id="lblTotalItems" layoutX="451.0" layoutY="108.0" prefHeight="17.0" prefWidth="56.0" />
       <Label fx:id="lblTime" layoutX="570.0" layoutY="27.0" text="Time" />
       <JFXButton layoutX="215.0" layoutY="181.0" onAction="#btnToDoList" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #81ecec;" text="To Do List" />
-      <JFXButton layoutX="403.0" layoutY="181.0" onAction="#btnCall" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: #81ecec;" text="Call" />
-      <Rectangle fx:id="lblActiveHours11" arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="33.0" layoutX="536.0" layoutY="78.0" stroke="BLACK" strokeType="INSIDE" width="118.0" />
-      <Label fx:id="lblTopItem" layoutX="556.0" layoutY="87.0" text="Top Selling Item" />
-      <Rectangle fx:id="lblActiveHours111" arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="33.0" layoutX="541.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" width="118.0" />
-      <Label fx:id="lblTopCashier" layoutX="544.0" layoutY="133.0" prefHeight="17.0" prefWidth="118.0" text="Top Selling Cashier" />
-      <JFXButton layoutX="8.0" layoutY="350.0" onAction="#btnUsersOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Users Manage" />
-      <JFXButton layoutX="6.0" layoutY="381.0" onAction="#btnReportOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Report Manage" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="55.0" layoutX="536.0" layoutY="78.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+      <Label layoutX="584.0" layoutY="78.0" text="Top Selling Item" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#55efc4" height="48.0" layoutX="537.0" layoutY="148.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+      <Label layoutX="569.0" layoutY="147.0" prefHeight="17.0" prefWidth="118.0" text="Top Selling Cashier" />
+      <JFXButton layoutX="8.0" layoutY="334.0" onAction="#btnUsersOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Users Manage" />
+      <JFXButton layoutX="6.0" layoutY="377.0" onAction="#btnReportOnAction" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #fd79a8;" text="Report Manage" />
+      <Label layoutX="247.0" layoutY="87.0" text="Total" />
+      <Label layoutX="354.0" layoutY="88.0" text="Orders" />
+      <Label layoutX="466.0" layoutY="88.0" text="Items" />
+      <Label fx:id="lblTopItem" layoutX="586.0" layoutY="103.0" prefHeight="17.0" prefWidth="87.0" />
+      <Label fx:id="lblTopCashier" layoutX="584.0" layoutY="173.0" prefHeight="17.0" prefWidth="87.0" />
    </children>
 </AnchorPane>

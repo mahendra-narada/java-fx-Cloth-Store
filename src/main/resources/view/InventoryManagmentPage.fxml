@@ -10,47 +10,53 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="706.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InventoryManagmentPageController">
+<AnchorPane prefHeight="706.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InventoryManagmentPageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="65.0" layoutX="-3.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="812.0" />
-      <Label layoutX="230.0" layoutY="14.0" text="Inventory Managment Page">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="52.0" layoutX="-3.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="695.0" />
+      <Label layoutX="296.0" layoutY="7.0" text="Inventory Managment Page">
          <font>
-            <Font size="24.0" />
+            <Font size="19.0" />
          </font>
       </Label>
-      <TableView fx:id="ItemFullTable" layoutX="29.0" layoutY="167.0" prefHeight="223.0" prefWidth="651.0">
-        <columns>
-          <TableColumn fx:id="colName" prefWidth="160.0" text="Name" />
+      <TableView fx:id="ItemFullTable" layoutX="9.0" layoutY="129.0" prefHeight="223.0" prefWidth="651.0">
+         <columns>
+            <TableColumn fx:id="colName" prefWidth="160.0" text="Name" />
             <TableColumn fx:id="colSize" prefWidth="108.0" text="size" />
             <TableColumn fx:id="colPrice" prefWidth="115.0" text="Price" />
             <TableColumn fx:id="colQuantity" prefWidth="127.0" text="Quantity" />
             <TableColumn fx:id="colSupplier" prefWidth="140.0" text="Supplier" />
-        </columns>
+         </columns>
       </TableView>
-      <JFXButton layoutX="266.0" layoutY="615.0" onAction="#btnAddItem" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: #fd79a8;" text="Add Item" />
-      <JFXButton layoutX="412.0" layoutY="615.0" onAction="#btnRemoveItem" prefHeight="52.0" prefWidth="87.0" style="-fx-background-color: #fd79a8;" text="Remove Item" />
-      <JFXButton layoutX="531.0" layoutY="615.0" onAction="#btnUpdateItem" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: #fd79a8;" text="Update Item" />
-      <JFXTextField fx:id="txtSearchBar" layoutX="14.0" layoutY="87.0" prefHeight="25.0" prefWidth="485.0" promptText="Search Item or Supplier" />
-      <JFXButton layoutX="524.0" layoutY="93.0" onAction="#btnSearch" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #0984e3;" text="Search" />
-      <JFXButton layoutX="17.0" layoutY="529.0" onAction="#btnUploadImage" style="-fx-background-color: #74b9ff;" text="Upload Image" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="14.0" layoutY="441.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
-      <JFXTextField fx:id="txtItemName" focusColor="#fd79a8" layoutX="198.0" layoutY="441.0" style="-fx-background-color: #fd79a8;" text="Item Name" />
-      <JFXTextField fx:id="txtItemPrice" layoutX="368.0" layoutY="441.0" style="-fx-background-color: #fd79a8;" text="Item Price" />
-      <JFXTextField fx:id="txtItemSize" layoutX="531.0" layoutY="441.0" style="-fx-background-color: #fd79a8;" text="Item Size" />
-      <JFXTextField fx:id="txtItemQuantity" layoutX="198.0" layoutY="504.0" style="-fx-background-color: #fd79a8;" text="Item Quantity" />
-      <JFXTextField fx:id="txtSupplierName" layoutX="368.0" layoutY="504.0" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #fd79a8;" text="Supplier Name/Company" />
-      <JFXTextField fx:id="txtSupplierEmail" layoutX="531.0" layoutY="504.0" style="-fx-background-color: #fd79a8;" text="Supplier Email" />
-      <ImageView fx:id="Itemimage" fitHeight="65.0" fitWidth="142.0" layoutX="19.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXButton layoutX="17.0" layoutY="667.0" onAction="#btnUploadImageSupplier" style="-fx-background-color: #74b9ff;" text="Upload Image" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="14.0" layoutY="575.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
-      <ImageView fx:id="SupplierImage" fitHeight="65.0" fitWidth="142.0" layoutX="19.0" layoutY="583.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXTextField fx:id="txtitemCategory" layoutX="199.0" layoutY="550.0" style="-fx-background-color: #fd79a8;" text="Item Category" />
-      <Label layoutX="377.0" layoutY="554.0" text="Item Code" />
-      <Label fx:id="lblitemcode" layoutX="376.0" layoutY="575.0" prefHeight="17.0" prefWidth="55.0" />
-      <Label layoutX="457.0" layoutY="556.0" text="Supplier Code" />
-      <Label fx:id="lblSuppliercode" layoutX="456.0" layoutY="577.0" prefHeight="17.0" prefWidth="55.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="695.0" layoutY="167.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <ImageView fx:id="itemImageView" fitHeight="150.0" fitWidth="200.0" layoutX="695.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXButton layoutX="627.0" layoutY="615.0" onAction="#btnLoadTable" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: #fd79a8;" text="Reload" />
+      <JFXButton layoutX="180.0" layoutY="619.0" onAction="#btnAddItem" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: #fd79a8;" text="Add Item" />
+      <JFXButton layoutX="271.0" layoutY="619.0" onAction="#btnRemoveItem" prefHeight="52.0" prefWidth="87.0" style="-fx-background-color: #fd79a8;" text="Remove Item" />
+      <JFXButton layoutX="372.0" layoutY="619.0" onAction="#btnUpdateItem" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: #fd79a8;" text="Update Item" />
+      <JFXTextField fx:id="txtSearchBar" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="485.0" promptText="Search Item or Supplier" />
+      <JFXButton layoutX="524.0" layoutY="77.0" onAction="#btnSearch" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #0984e3;" text="Search" />
+      <JFXButton layoutX="17.0" layoutY="473.0" onAction="#btnUploadImage" style="-fx-background-color: #74b9ff;" text="Upload Image" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="14.0" layoutY="385.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
+      <JFXTextField fx:id="txtItemName" focusColor="#fd79a8" layoutX="198.0" layoutY="405.0" style="-fx-background-color: #fd79a8;" />
+      <JFXTextField fx:id="txtItemPrice" layoutX="368.0" layoutY="405.0" style="-fx-background-color: #fd79a8;" />
+      <JFXTextField fx:id="txtItemSize" layoutX="531.0" layoutY="409.0" style="-fx-background-color: #fd79a8;" />
+      <JFXTextField fx:id="txtItemQuantity" layoutX="198.0" layoutY="487.0" style="-fx-background-color: #fd79a8;" />
+      <JFXTextField fx:id="txtSupplierName" layoutX="368.0" layoutY="487.0" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #fd79a8;" />
+      <JFXTextField fx:id="txtSupplierEmail" layoutX="531.0" layoutY="487.0" style="-fx-background-color: #fd79a8;" />
+      <ImageView fx:id="Itemimage" fitHeight="65.0" fitWidth="142.0" layoutX="19.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton layoutX="17.0" layoutY="628.0" onAction="#btnUploadImageSupplier" style="-fx-background-color: #74b9ff;" text="Upload Image" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="14.0" layoutY="539.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
+      <ImageView fx:id="SupplierImage" fitHeight="65.0" fitWidth="142.0" layoutX="19.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="txtitemCategory" layoutX="199.0" layoutY="558.0" style="-fx-background-color: #fd79a8;" />
+      <Label fx:id="lblitemcode" layoutX="545.0" layoutY="14.0" prefHeight="17.0" prefWidth="55.0" textFill="#257fbf" />
+      <Label fx:id="lblSuppliercode" layoutX="200.0" layoutY="14.0" prefHeight="17.0" prefWidth="55.0" textFill="#3c66c6" />
+      <JFXButton layoutX="462.0" layoutY="619.0" onAction="#btnLoadTable" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: #fd79a8;" text="Reload" />
+      <Label layoutX="17.0" layoutY="359.0" text="Item Image" />
+      <Label layoutX="17.0" layoutY="513.0" text="Supplier Image" />
+      <Label layoutX="198.0" layoutY="368.0" text="Item Name" />
+      <Label layoutX="368.0" layoutY="368.0" text="Item Price" />
+      <Label layoutX="531.0" layoutY="368.0" text="Item Size" />
+      <Label layoutX="198.0" layoutY="457.0" text="Item Quantity" />
+      <Label layoutX="368.0" layoutY="457.0" text="Supplier Name" />
+      <Label layoutX="533.0" layoutY="457.0" text="Supplier Email" />
+      <Label layoutX="197.0" layoutY="528.0" text="Category" />
+      <JFXButton layoutX="558.0" layoutY="619.0" onAction="#btnHome" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: #fd79a8;" text="Home" />
    </children>
 </AnchorPane>

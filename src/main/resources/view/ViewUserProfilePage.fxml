@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane prefHeight="402.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewUserProfilePageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="138.0" layoutX="144.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <ImageView fx:id="userImage" fitHeight="150.0" fitWidth="200.0" layoutX="154.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="lbluserName" layoutX="160.0" layoutY="167.0" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #81ecec;" />
+      <JFXTextField fx:id="lblEmail" layoutX="158.0" layoutY="228.0" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #81ecec;" />
+      <JFXTextField fx:id="lblpassword" layoutX="158.0" layoutY="280.0" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #81ecec;" />
+      <JFXButton layoutX="365.0" layoutY="119.0" onAction="#btnUploadImage" style="-fx-background-color: #81ecec;" text="Upload Image" />
+      <JFXButton layoutX="196.0" layoutY="336.0" onAction="#btnUpdateUser" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #81ecec;" text="Update" />
+      <JFXButton layoutX="39.0" layoutY="349.0" onAction="#btnHomePge" style="-fx-background-color: #ff7675;" text="Home" />
+   </children>
+</AnchorPane>

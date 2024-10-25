@@ -59,4 +59,21 @@ public class ItemServiceImpl implements ItemService {
 
 
     }
+
+    @Override
+    public int getItemStock(String itemName) {
+        ItemDao itemDao= DaoFactory.getInstance().getServiceType(DaoType.ITEM);
+        return itemDao.getItemStock(itemName);
+    }
+
+    @Override
+    public long getTotalItemsCount() {
+        ItemDao itemDao= DaoFactory.getInstance().getServiceType(DaoType.ITEM);
+        return itemDao.getTotalItemsCount();
+    }
+
+    public void updateItemStock(String itemName, int newStock){
+        ItemDao itemDao= DaoFactory.getInstance().getServiceType(DaoType.ITEM);
+        itemDao.updateItemStock(itemName,newStock);
+    }
 }

@@ -1,15 +1,20 @@
 package controller;
 
 import Entity.ItemEntity;
+import Entity.UserType;
 import Service.Custom.Impl.ItemServiceImpl;
 import Service.Custom.ItemService;
+import Service.Custom.UserService;
 import Service.ServiceFactory;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -18,7 +23,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.Item;
+import model.UserModel;
 import util.ServiceType;
 
 import javax.imageio.ImageIO;
@@ -284,6 +291,21 @@ public class InventoryManagmentPageController implements Initializable {
 
     @FXML
     void btnLoadTable(ActionEvent event) {
+        txtSearchBar.setText("");
+        txtItemName.setText("");
+        txtSupplierEmail.setText("");
+        txtitemCategory.setText("");
+        txtItemSize.setText("");
+        txtItemQuantity.setText("");
+        txtItemPrice.setText("");
+        ItemimageBytes = null;
+        SupplierImageBytes = null;
+        txtSupplierName.setText("");
+
+// Reset the ImageView components (if you're using them)
+        Itemimage.setImage(null); // Reset the item image
+        SupplierImage.setImage(null);
+
         loadTable();
     }
 
@@ -329,16 +351,16 @@ public class InventoryManagmentPageController implements Initializable {
             // Convert byte[] to Image
             Image image = new Image(new ByteArrayInputStream(imageData));
             Image supimage = new Image(new ByteArrayInputStream(supplierImaBytes));
-            itemImageView.setImage(image);
+            //itemImageView.setImage(image);
             Itemimage.setImage(image);
             SupplierImage.setImage(supimage);
 
-            itemImageView.setFitHeight(200);  // Set desired height
-            itemImageView.setFitWidth(200);   // Set desired width
-            itemImageView.setPreserveRatio(true);
+            //itemImageView.setFitHeight(200);  // Set desired height
+            //itemImageView.setFitWidth(200);   // Set desired width
+            //itemImageView.setPreserveRatio(true);
         } else {
             // If no image is available, clear the ImageView
-            itemImageView.setImage(null);
+            //itemImageView.setImage(null);
         }
     }
 
@@ -355,5 +377,30 @@ public class InventoryManagmentPageController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+
+    @FXML
+    void btnHome(ActionEvent event) throws IOException {
+        UserService userService = ServiceFactory.getInstance().getServiceType(ServiceType.FIRSTREGISTERUSER);
+        UserModel userModel = userService.getUser(userEmail);
+        if (userModel.getUserType() == UserType.ADMIN_USER) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/AdminDashBoard.fxml"));
+            Parent root = loader.load();
+            AdminDashBoardPageController adminDashBoardPageController = loader.getController();
+            adminDashBoardPageController.settingUserEmail(userEmail);
+            Stage currentStage = (Stage) txtSearchBar.getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+            currentStage.show();
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/NormalUserDashBoardPage.fxml"));
+            Parent root = loader.load();
+            NormalUserDashBoardPageController normalUserDashBoardPageController = loader.getController();
+            normalUserDashBoardPageController.settingUserEmail(userEmail);
+            Stage currentStage = (Stage) txtSearchBar.getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+            currentStage.show();
+
+        }
     }
 }

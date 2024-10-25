@@ -9,4 +9,5 @@ public class CartItem {
     private String itemName;
     private double price;
     private int quantity;
+    private double total;
 }

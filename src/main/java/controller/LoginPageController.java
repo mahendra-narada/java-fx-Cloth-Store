@@ -55,7 +55,7 @@ public class LoginPageController {
                 UserEntity userEntity = loginService.verifyUSer(email, password);
                 if (userEntity != null) {
                     if (userEntity.getUserType() == UserType.ADMIN_USER) {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/AdminDashBoardPage.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/AdminDashBoard.fxml"));
                         Parent root = loader.load();
                         AdminDashBoardPageController adminDashBoardPageController = loader.getController();
                         adminDashBoardPageController.settingUserEmail(email);

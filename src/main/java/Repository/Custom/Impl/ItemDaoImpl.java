@@ -4,6 +4,7 @@ import Entity.ItemEntity;
 import Repository.Custom.ItemDao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.HibernateUtil;
 
@@ -98,5 +99,49 @@ public class ItemDaoImpl implements ItemDao {
             session.close();
         }
     }
+
+    @Override
+    public int getItemStock(String itemName) {
+        int stock = 0;
+        try (Session session = HibernateUtil.getSession()) {
+            // Use the appropriate attribute name `Quantity` for item stock
+            Query<Integer> query = session.createQuery("SELECT i.Quantity FROM ItemEntity i WHERE i.item_name = :itemName", Integer.class);
+            query.setParameter("itemName", itemName);
+            stock = query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return stock;
+    }
+
+    @Override
+    public void updateItemStock(String itemName, int newStock) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            // Use the appropriate attribute name `Quantity` for item stock
+            Query query = session.createQuery("UPDATE ItemEntity i SET i.Quantity = :newStock WHERE i.item_name = :itemName");
+            query.setParameter("newStock", newStock);
+            query.setParameter("itemName", itemName);
+
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public long getTotalItemsCount() {
+        long totalItems = 0;
+        try (Session session = HibernateUtil.getSession()) {
+            Query<Long> query = session.createQuery("SELECT COUNT(i) FROM ItemEntity i", Long.class);
+            totalItems = query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return totalItems;
+    }
+
 
 }

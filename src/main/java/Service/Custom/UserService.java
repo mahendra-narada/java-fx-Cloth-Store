@@ -8,5 +8,6 @@ public interface UserService extends SuperService {
     boolean addCustomer(UserModel userModel);
     public int fetchLastUserId();
     UserModel getUser(String email);
+    public void updateUser(UserModel userModel);
 
 }

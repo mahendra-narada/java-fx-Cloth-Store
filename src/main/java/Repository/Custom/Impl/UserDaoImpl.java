@@ -3,6 +3,7 @@ package Repository.Custom.Impl;
 import Entity.UserEntity;
 import Repository.Custom.UserDao;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.HibernateUtil;
 
@@ -65,6 +66,26 @@ public class UserDaoImpl implements UserDao {
         }
 
         return lastUserId;
+    }
+
+    @Override
+    public void updateUser(UserEntity userEntity) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSession()) {
+            // Start transaction
+            transaction = session.beginTransaction();
+
+            // Update the user in the database
+            session.update(userEntity);
+
+            // Commit the transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
     }
 
 }

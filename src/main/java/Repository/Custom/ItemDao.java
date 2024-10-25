@@ -14,5 +14,8 @@ public interface ItemDao extends SuperDao {
     public  boolean deleteItem(String itemcode);
     public boolean updateItem(ItemEntity itemEntity);
     public List<ItemEntity> searchItems(String searchText);
+    public int getItemStock(String itemName);
+    public void updateItemStock(String itemName, int newStock);
+    public long getTotalItemsCount();
 
 }

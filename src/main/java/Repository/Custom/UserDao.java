@@ -6,4 +6,5 @@ import Repository.CrudDao;
 public interface UserDao extends CrudDao<UserEntity> {
 
     public int getLastUserId();
+    public void updateUser(UserEntity userEntity);
 }
